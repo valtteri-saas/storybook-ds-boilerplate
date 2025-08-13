@@ -1,7 +1,19 @@
 {
-  "name": "storybook-9",
-  "private": true,
-  "version": "0.0.0",
+  "name": "design-system-boilerplate",
+  "private": false,
+  "version": "1.0.0",
+  "description": "A comprehensive boilerplate for creating design system documentation using Storybook, React, TypeScript, and Vite",
+  "keywords": [
+    "design-system",
+    "storybook",
+    "react",
+    "typescript",
+    "vite",
+    "design-tokens",
+    "boilerplate"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",

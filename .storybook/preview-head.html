@@ -1,0 +1,151 @@
+<link rel="stylesheet" href="./src/styles/tokens.css" />
+
+<style>
+  /* Style horizontal dividers with light gray color and large vertical spacing */
+  .sbdocs-content:not(.sb-unstyled) > hr {
+    border-color: #e6e6e6 !important;
+    margin: 96px 0 !important;
+  }
+
+  /* Style links - Purple color palette */
+  .css-x28zkw :where(a:not(.sb-anchor, .sb-unstyled, .sb-unstyled a)) {
+    color: #6b4caa !important; /* Purple-600 for good readability */
+  }
+
+  /* Link hover state */
+  .css-x28zkw :where(a:not(.sb-anchor, .sb-unstyled, .sb-unstyled a)):hover {
+    color: #513983 !important; /* Purple-700 for hover state */
+  }
+
+  /* Style TOC */
+  .css-q7khkg .toc-list-item > a {
+    color: rgba(0, 0, 0, 0.8) !important;
+  }
+
+  /* Style paragraphs with dark gray color, light weight, and comfortable line spacing */
+  p {
+    color: #4f4f4f !important;
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    letter-spacing: 0.0054em !important;
+    line-height: 1.48 !important;
+    margin-bottom: 24px !important;
+    overflow-wrap: break-word !important;
+  }
+
+  p,
+  ol,
+  li {
+    max-width: min(100%, 70ch);
+  }
+
+  /* Set medium weight for bold and strong text */
+  .sbdocs-content:not(.sb-unstyled) > p b,
+  .sbdocs-content:not(.sb-unstyled) > p strong {
+    font-weight: 500 !important;
+  }
+
+  /* Common styles for all heading levels */
+  .sbdocs-content:not(.sb-unstyled) > h1,
+  .sbdocs-content:not(.sb-unstyled) > h2,
+  .sbdocs-content:not(.sb-unstyled) > h3,
+  .sbdocs-content:not(.sb-unstyled) > h4,
+  .sbdocs-content:not(.sb-unstyled) > h5 {
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    color: #1d1d1d;
+    border-bottom: none !important;
+    max-width: min(100%, 70ch);
+  }
+
+  /* Large, impactful h1 headings with extra spacing */
+  .sbdocs-content:not(.sb-unstyled) > h1 {
+    font-size: 52px !important;
+    margin-top: 80px !important;
+    margin-bottom: 32px !important;
+  }
+
+  /* Prominent h2 headings with normalized styling and generous spacing */
+  .sbdocs-content:not(.sb-unstyled) > h2 {
+    font-size: 40px !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    margin-top: 72px !important;
+    margin-bottom: 24px !important;
+  }
+
+  /* Medium-sized h3 headings with moderate spacing */
+  .sbdocs-content:not(.sb-unstyled) > h3 {
+    font-size: 24px !important;
+    margin-top: 56px !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Smaller h4 headings with reduced spacing */
+  .sbdocs-content:not(.sb-unstyled) > h4 {
+    font-size: 19px !important;
+    margin-top: 48px !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Small h5 headings with minimal spacing */
+  .sbdocs-content:not(.sb-unstyled) > h5 {
+    font-size: 16px !important;
+    margin-top: 40px !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Distinctive h6 headings with uppercase and letter spacing */
+  .sbdocs-content:not(.sb-unstyled) > h6 {
+    font-size: 14px !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    margin-top: 32px !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Style lists to match paragraph styling */
+  .sbdocs-content:not(.sb-unstyled) > ul,
+  .sbdocs-content:not(.sb-unstyled) > ol {
+    margin: 0 0 24px 0 !important;
+    padding-left: 24px !important;
+  }
+
+  /* Style list items to match paragraph styling */
+  .sbdocs-content:not(.sb-unstyled) > ul li,
+  .sbdocs-content:not(.sb-unstyled) > ol li,
+  .sbdocs-content:not(.sb-unstyled) li {
+    color: #4f4f4f !important;
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    line-height: 1.48 !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* List items and any nested <p> tags */
+  .sbdocs-content:not(.sb-unstyled) li,
+  .sbdocs-content:not(.sb-unstyled) li > p {
+    color: #4f4f4f !important;
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    line-height: 1.48 !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Style nested lists */
+  .sbdocs-content:not(.sb-unstyled) li > ul,
+  .sbdocs-content:not(.sb-unstyled) li > ol {
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* First heading in the content should have no top margin */
+  .sbdocs-content:not(.sb-unstyled) > h1:first-child,
+  .sbdocs-content:not(.sb-unstyled) > h2:first-child,
+  .sbdocs-content:not(.sb-unstyled) > h3:first-child,
+  .sbdocs-content:not(.sb-unstyled) > h4:first-child,
+  .sbdocs-content:not(.sb-unstyled) > h5:first-child,
+  .sbdocs-content:not(.sb-unstyled) > h6:first-child {
+    margin-top: 0 !important;
+  }
+</style>

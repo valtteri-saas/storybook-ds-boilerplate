@@ -1,0 +1,179 @@
+<meta property="og:description" content="Documentation for [System Name]" />
+<meta name="description" content="Documentation for [System Name]" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="[System Name]" />
+
+<style>
+  /* Hide testing module */
+  #storybook-testing-module {
+    display: none !important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  /* Sidebar width */
+  @media (min-width: 600px) {
+    .css-1nolumm {
+      grid-template:
+        'sidebar content content' 1fr
+        'sidebar content content' minmax(0px, 324px) / minmax(0px, 324px) minmax(
+          100px,
+          1fr
+        )
+        minmax(0px, 400px) !important;
+    }
+  }
+
+  /* Sidebar container background */
+  .sidebar-container {
+    background-color: #211439 !important;
+  }
+
+  /* Normalize section headers (root headers like Tokens, Foundations, etc.) */
+  .sidebar-subheading {
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-top: 2px !important;
+  }
+
+  .sidebar-subheading:first-child {
+    margin-top: 0 !important;
+  }
+
+  /* Section heading button styles (Tokens, Foundations, etc.) */
+  .sidebar-subheading > button:not(.sidebar-subheading-action) {
+    padding: 8px 8px !important;
+    gap: 16px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    width: 100% !important;
+  }
+
+  .sidebar-subheading:hover {
+    color: white;
+  }
+
+  /* Hide folder/component icons */
+  .sidebar-item.sidebar-item > button > div > svg,
+  .sidebar-item.sidebar-item > a div {
+    display: none !important;
+  }
+
+  /* General sidebar item style */
+  .sidebar-item {
+    place-items: center !important;
+  }
+
+  /* Highlight selected item - Purple color palette */
+  .sidebar-item[data-selected='true'] {
+    background: rgba(
+      135,
+      96,
+      212,
+      0.15
+    ) !important; /* Purple-500 with 15% opacity for selected state */
+    color: rgb(107, 76, 170) !important; /* Purple-600 for good contrast */
+  }
+
+  /* Hover state for sidebar items */
+  .sidebar-item:hover {
+    background: rgba(
+      135,
+      96,
+      212,
+      0.08
+    ) !important; /* Purple-500 with 8% opacity for hover */
+  }
+
+  /* Remove icons from document links */
+  .sidebar-item > div > button,
+  .sidebar-item > div > a {
+    box-shadow: none !important;
+  }
+
+  /* Adjust context menu icon button placement */
+  .sidebar-item > div {
+    right: 4px !important;
+  }
+
+  /* ================================
+     LEVEL: 1st-level root documents
+     (e.g., About, Resources)
+  ================================== */
+  .sidebar-item[data-nodetype='document']:not([data-parent-id]) > a {
+    padding: 12px 12px 12px 32px !important;
+    gap: 16px !important;
+    font-size: 14px !important;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ================================
+     LEVEL: 2nd-level standalone docs
+     (e.g., Foundations/Color, Content/Capitalization)
+  ================================== */
+  .sidebar-item[data-nodetype='document'][data-parent-id^='foundations'] > a,
+  .sidebar-item[data-nodetype='document'][data-parent-id^='tokens'] > a,
+  .sidebar-item[data-nodetype='document'][data-parent-id^='components'] > a,
+  .sidebar-item[data-nodetype='document'][data-parent-id^='content'] > a,
+  .sidebar-item[data-nodetype='document'][data-parent-id^='patterns'] > a {
+    padding: 12px 12px 12px 56px !important;
+    gap: 16px !important;
+    font-size: 14px !important;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ================================
+     LEVEL: 2nd-level group buttons
+     (e.g., Tokens/Colors [grouped])
+  ================================== */
+  .sidebar-item[data-nodetype='group'] > button,
+  .sidebar-item[data-nodetype='component'] > button {
+    padding: 12px 12px 12px 32px !important;
+    gap: 16px !important;
+    font-size: 14px !important;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ================================
+     LEVEL: 3rd-level items
+     (e.g., Tokens/Colors/Background)
+  ================================== */
+  .sidebar-item[data-nodetype='document'][data-parent-id*='-'] > a,
+  .sidebar-item[data-nodetype='story'][data-parent-id*='-'] > a {
+    padding: 12px 12px 12px 72px !important;
+    gap: 16px !important;
+    font-size: 14px !important;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ================================
+     Search results styles
+  ================================== */
+  .search-result-recentlyOpened {
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+  }
+
+  .search-result-item {
+    place-items: center !important;
+    gap: 12px !important;
+  }
+
+  .search-result-item--label > div > span {
+    opacity: 0.5 !important;
+    margin-top: 2px !important;
+  }
+
+  /* Hide "+ new story" button in search */
+  .search-field + div:has(> button > svg) {
+    display: none !important;
+  }
+</style>

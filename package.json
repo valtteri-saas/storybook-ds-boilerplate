@@ -22,8 +22,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "generate:token-docs": "node utils/generateTokenDocs.cjs",
-    "generate:ant-d-components": "node utils/generateAntdDocs.cjs"
+    "generate:token-docs": "node utils/generateTokenDocs.cjs"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",

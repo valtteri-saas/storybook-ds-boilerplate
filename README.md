@@ -42,11 +42,24 @@ npm run generate:token-docs  # Update token documentation
 - `npm run build-storybook` - Build for deployment
 - `npm run generate:token-docs` - Generate token documentation
 
+## Documentation Components
+
+Includes pre-built React components for common design system documentation patterns:
+
+- **DoDont** - Visual do/don't examples
+- **Palette** - Color palette displays
+- **Token** - Individual token documentation
+- **TLDR** - Quick summary boxes
+- **SpacingIndicators** - Spacing visualization
+- **Logo** - Brand logo component
+
 ## Project Structure
 
 ```
 ├── .storybook/          # Storybook config + custom styling
-├── src/stories/         # Documentation and component stories
+├── src/
+│   ├── components/      # Documentation helper components
+│   └── stories/         # Documentation and component stories
 ├── tokens/              # Design tokens JSON
 └── utils/               # Token generation scripts
 ```

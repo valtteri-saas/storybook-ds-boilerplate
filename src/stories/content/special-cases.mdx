@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import TLDR from '../../components/TLDR';
+import DoDont from '../../components/DoDont';
+
+<Meta title="Content/Special cases" />
+
+# Special numeric cases
+
+<TLDR>
+  <ul>
+    <li>
+      Display <code>0</code> for zero values (not a hyphen)
+    </li>
+    <li>Use a consistent em dash (—) for null, N/A, or unavailable states</li>
+  </ul>
+</TLDR>
+
+## Zero and empty values
+
+For zero values, always display <code>0</code>. Avoid using a hyphen as a visual placeholder.
+
+<DoDont rows={[{ do: '0', dont: '-' }]} />
+
+## Null and not applicable values
+
+Use an em dash (—) to represent null or unavailable values. Avoid alternatives like <code>n/a</code> or "None".
+
+<DoDont rows={[{ do: '—', dont: 'n/a' }]} />
+
+<p>
+  Use a consistent em dash character (—) across all interfaces to indicate
+  unavailable or inapplicable data.
+</p>

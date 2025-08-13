@@ -1,0 +1,79 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import TLDR from '../../components/TLDR';
+import DoDont from '../../components/DoDont';
+
+<Meta title="Content/Date & time" />
+
+# Dates & time
+
+<TLDR>
+  <ul>
+    <li>
+      Use <code>DD/MM/YYYY</code> for dates in tables
+    </li>
+    <li>Use tooltips for full timestamps (with seconds)</li>
+    <li>
+      Use abbreviated formats like <code>5min ago</code>
+    </li>
+    <li>
+      Use compact time units like <code>ms</code>, <code>s</code>,{' '}
+      <code>d</code>
+    </li>
+  </ul>
+</TLDR>
+
+## Date formats
+
+Use `DD/MM/YYYY` format for all dates in tables and data displays. Use `DD/MM/YYYY HH:MM` for timestamps. Show the full timestamp in a tooltip when possible.
+
+<DoDont rows={[{ do: '21/05/2025 15:30', dont: 'May 21, 2025 03:30 PM' }]} />
+
+## Graph date labels
+
+Use a consistent format based on time scale.
+
+<DoDont
+  rows={[
+    { do: 'May 16', dont: '16 May 2024' },
+    { do: 'Mar 2024', dont: 'March' },
+    { do: '2024', dont: "'24" },
+  ]}
+/>
+
+## Relative time
+
+Use abbreviated format: "[number][unit] ago". Show exact timestamp in a tooltip.
+
+<DoDont
+  rows={[
+    { do: '9d ago', dont: '9 days ago' },
+    { do: '5min ago', dont: '5 minutes ago' },
+    { do: 'Just now', dont: '< 1m' },
+  ]}
+/>
+
+## Time unit abbreviations
+
+Use abbreviated time units with no spaces between number and unit.
+
+<DoDont
+  rows={[
+    { do: '1.1s', dont: '1.1 sec' },
+    { do: '350ms', dont: '350 ms' },
+    { do: '5min', dont: '5 minutes' },
+    { do: '2h', dont: '2 hours' },
+    { do: '7d', dont: '7 days' },
+    { do: '3mo', dont: '3 months' },
+  ]}
+/>
+
+## Time intervals
+
+Use clear, short formats for intervals.
+
+<DoDont
+  rows={[
+    { do: 'In 1min', dont: 'In one minute' },
+    { do: 'Every 12h', dont: '12 hours recurring' },
+  ]}
+/>

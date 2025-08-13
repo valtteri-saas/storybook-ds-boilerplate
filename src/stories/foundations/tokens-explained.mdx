@@ -1,0 +1,67 @@
+import { Meta, Unstyled } from '@storybook/addon-docs';
+import DoDont from '../../components/DoDont';
+import Token from '../../components/Token';
+
+<Meta title="Foundations/Tokens/Tokens explained" />
+
+# Tokens explained
+
+Design tokens are the foundation of visual consistency in Prerender's user interfaces. In Horizon, tokens serve as a shared language between designers and developers, simplifying decisions and reducing duplication as we scale our product experiences.
+
+## What are design tokens?
+
+![Token Diagram](/images/token-example.png)
+
+Design tokens are small, reusable variables that store design values.
+
+Rather than hardcoding values like #2da01d or 16px directly into your code or designs, tokens abstract the underlying value into a meaningful name like `color-foreground-icon`. This makes your UI more maintainable and adaptable, even as styles change over time.
+
+Tokens help us:
+
+- Create experiences that are visually consistent
+- Support themes like dark mode
+- Enable automation between design and code
+- Safeguard against duplicated or arbitrary styling decisions
+
+## Available tokens
+
+### Color tokens
+
+Tokens for all interface color usage; text, icons, backgrounds, surfaces, borders, and states (like danger or success).
+
+### Data tokens
+
+Tokens designed to support data visualizing. These tokens ensure consistent, accessible color usage across analytical views.
+
+### Border tokens
+
+Tokens that define consistent radii, and widths. Borders help structure layouts, distinguish components, and support accessibility.
+
+### Space tokens
+
+Predefined spacing values that ensure consistent vertical and horizontal rhythm across layouts. These tokens replace arbitrary padding or margin choices.
+
+### Typography tokens
+
+Tokens for all typographic decisions; font family, size, weight, line height, and letter spacing. Typography tokens help maintain a unified voice across platforms.
+
+## Best practices
+
+Use design tokens with intention and clarity. The goal is to make design and development faster, more consistent, and adaptable to change.
+
+<DoDont
+  rows={[
+    {
+      do: 'Choose tokens based on intended meaning, not raw value.',
+      dont: 'Use tokens just because the output looks right.',
+    },
+    {
+      do: 'Use tokens consistently across UIs.',
+      dont: 'Override system tokens with arbitrary styles unless explicitly needed.',
+    },
+    {
+      do: 'Rely on the design system instead of custom values to promote predictability.',
+      dont: 'Copy and paste token names without understanding their purpose.',
+    },
+  ]}
+/>

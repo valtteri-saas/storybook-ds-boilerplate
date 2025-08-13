@@ -1,0 +1,82 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import TLDR from '../../components/TLDR';
+import DoDont from '../../components/DoDont';
+
+<Meta title="Content/Formatting" />
+
+# Number formatting
+
+<TLDR>
+  <p>Key formatting rules for numeric values:</p>
+  <ul>
+    <li>Use commas as thousand separators for numbers over 999</li>
+    <li>Use uppercase metric abbreviations (K, M, B)</li>
+    <li>Use +/− for percent change</li>
+    <li>
+      Use <code>$</code> with proper spacing and decimals
+    </li>
+    <li>
+      Display metric usage as <code>used / total</code>
+    </li>
+    <li>Apply consistent decimal precision based on value type</li>
+  </ul>
+</TLDR>
+
+## Numbers and thousand separators
+
+Use commas for all numbers over 999.
+
+<DoDont
+  rows={[
+    { do: '1,455', dont: '1455' },
+    { do: '12,500', dont: '12500' },
+    { do: '1,501,111', dont: '1501111' },
+  ]}
+/>
+
+## Large number abbreviations
+
+Use uppercase abbreviations for K, M, B. Always include a tooltip with the full value.
+
+<DoDont
+  rows={[
+    { do: '15K', dont: '15,000' },
+    { do: '1.5M', dont: '1,500,000' },
+    { do: '2.3B', dont: '2,300,000,000' },
+  ]}
+/>
+
+## Percentages and changes
+
+Do not add a space between the number and the percent sign. Include a sign to indicate direction.
+
+<DoDont
+  rows={[
+    { do: '95%', dont: '95 %' },
+    { do: '+13.8%', dont: '13.8%' },
+    { do: '-2.4%', dont: 'Down 2.4%' },
+  ]}
+/>
+
+## Currency
+
+Use the dollar sign ($) with no space. Use 2 decimal places for cents; drop decimals for whole-dollar values.
+
+<DoDont
+  rows={[
+    { do: '$15.50', dont: '15 USD' },
+    { do: '$0', dont: '$0.00' },
+    { do: '$15', dont: 'USD 15' },
+  ]}
+/>
+
+## Render limits and metric suffixes
+
+Use <code>[used] / [total]</code> to show usage. Use metric suffixes for multipliers.
+
+<DoDont
+  rows={[
+    { do: '997/1,000 renders used', dont: '997 of 1,000 left' },
+    { do: '58.7x', dont: '×58.7' },
+  ]}
+/>

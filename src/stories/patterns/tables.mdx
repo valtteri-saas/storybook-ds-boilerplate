@@ -1,0 +1,150 @@
+import { Meta, Unstyled } from '@storybook/addon-docs';
+import React from 'react';
+import ThemeProvider from '../../components/ThemeProvider';
+import DoDont from '../../components/DoDont';
+import { Table, Input, Button, Space, Tag, Card, Empty } from 'antd';
+import {
+  SearchOutlined,
+  UserAddOutlined,
+  InfoCircleOutlined,
+} from '@ant-design/icons';
+
+<Meta title="Patterns/Tables" />
+
+# Tables
+
+## Placement
+
+### In a card
+
+Putting the table inside a card keeps things consistent and gives us space for action buttons and a title, making everything clear and tidy.
+
+<Unstyled>
+  <ThemeProvider>
+    <Card
+      title="Members"
+      extra={
+        <Space>
+          <Input
+            placeholder="Search by name"
+            size="small"
+            suffix={<SearchOutlined />}
+          />
+          <Button type="primary" size="small" icon={<UserAddOutlined />}>
+            Invite member
+          </Button>
+        </Space>
+      }
+    >
+      <Table
+        rowKey="email"
+        size="middle"
+        bordered
+        pagination={false}
+        dataSource={[
+          {
+            email: 'steve@prerender.io',
+            joined: '6 Mar 2024, 17:12',
+            status: <Tag>Active</Tag>,
+            actions: null,
+          },
+          {
+            email: 'bob@prerender.io',
+            joined: '6 Mar 2024, 17:13',
+            status: <Tag>Active</Tag>,
+          },
+          {
+            email: 'maria@prerender.io',
+            joined: '-',
+            status: <Tag color="processing">Invited</Tag>,
+            actions: <a>Revoke</a>,
+          },
+        ]}
+        columns={[
+          { title: 'Email', dataIndex: 'email' },
+          { title: 'Joined', dataIndex: 'joined' },
+          { title: 'Status', dataIndex: 'status' },
+          { title: 'Actions', dataIndex: 'actions' },
+        ]}
+      />
+    </Card>
+  </ThemeProvider>
+</Unstyled>
+
+## Usage
+
+- Card title: Each card should begin with a descriptive title. This title conveys the contents of the table.
+- Action items: Alongside the title, action items related to the table should be placed. Actions could include search or filter functions, which facilitate finding specific table entries, or more task-specific functions like adding a new team member.
+- Content integration: The table itself follows below the title and action items. It should integrate with the card layout, respecting the defined paddings and boundaries. When used inside a card it is recommended to set the bordered property in the table component to true.
+
+## Content guidelines
+
+### Header
+
+- Brevity: Keep headers short and easy to scan.
+- Descriptiveness: Ensure headers give a clear understanding of column content.
+- Measurement units: Incorporate units of measurement into the header to avoid repetition in the columns.
+- Capitalization: Use sentence case, capitalizing only the first word.
+
+### Columns
+
+- Scannability: Maintain column content brevity for quick scanning.
+- Measurement units: Refrain from repeating units of measurement in columns; these should be exclusive to headers.
+- Capitalization: Stick to sentence case here as well, with only the first word capitalized.
+
+## Behaviors
+
+### Empty state
+
+When a data table lacks the necessary data to populate its rows, an empty state will be presented. This state serves as a placeholder, communicating to the user that there is no available data to display at the moment.
+
+It’s an opportunity to offer guidance or actions the user can take to fill the table with content, ensuring a clear and helpful experience even when the data is not present.
+
+<Unstyled>
+  <ThemeProvider>
+    <Card
+      style={{ height: 400 }}
+      title="Members"
+      extra={
+        <Space>
+          <Input
+            placeholder="Search by name"
+            size="small"
+            suffix={<SearchOutlined />}
+          />
+          <Button type="primary" size="small" icon={<UserAddOutlined />}>
+            Invite member
+          </Button>
+        </Space>
+      }
+      bodyStyle={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100%',
+        padding: 0,
+      }}
+    >
+      <Empty description="Start by inviting more members." />
+    </Card>
+  </ThemeProvider>
+</Unstyled>
+
+## Best practices
+
+<DoDont
+  rows={[
+    {
+      do: 'Place the table inside a card component when possible.',
+      dont: 'Avoid using tables for simple key-value pairs; opt for a simple list instead.',
+    },
+    {
+      do: 'Use fixed headers on the table component to maintain header visibility during scrolling, providing constant context to users.',
+      dont: "Don't place a primary button on each row.",
+    },
+    {
+      do: 'Offer the user pagination.',
+      dont: "Don't overcrowd the table with too much data in a single view. Use pagination or expandable rows for additional details.",
+    },
+  ]}
+/>

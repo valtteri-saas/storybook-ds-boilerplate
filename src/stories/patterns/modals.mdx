@@ -1,0 +1,241 @@
+import { Meta, Unstyled } from '@storybook/addon-docs';
+import React from 'react';
+import ThemeProvider from '../../components/ThemeProvider';
+import DoDont from '../../components/DoDont';
+import { Modal, Input, Button, Switch, Space } from 'antd';
+import { DeleteOutlined, ReloadOutlined } from '@ant-design/icons';
+
+<Meta title="Patterns/Modals" />
+
+# Modals
+
+## Anatomy
+
+<Unstyled>
+  <ThemeProvider>
+    {(() => {
+      const getContainer = () =>
+        document.getElementById('modal-container') || document.body;
+      return (
+        <div
+          id="modal-container"
+          style={{
+            padding: 56,
+            background: 'rgba(0,0,0, 0.45)',
+          }}
+        >
+          <style>
+            {`
+              #modal-container .ant-modal-wrap {
+                position: relative !important;
+                inset: unset !important;
+                z-index: auto !important;
+                overflow: visible !important;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+              }
+              #modal-container .ant-modal {
+                top: 0 !important;
+              }
+              .custom-modal .ant-modal-content {
+                padding: 0;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+              }
+              .custom-modal .ant-modal-header {
+                background-color: #f8d9f3;
+                padding: 16px 24px;
+                border-bottom: none;
+              }
+              .custom-modal .ant-modal-title {
+                font-weight: 600;
+                font-size: 16px;
+              }
+              .custom-modal .ant-modal-body {
+                background-color: #cbf3f0;
+                padding: 24px;
+              }
+              .custom-modal .ant-modal-footer {
+                background-color: #ccf5c0;
+                padding: 16px 24px;
+                border-top: none;
+                display: flex;
+                justify-content: space-between;
+              }
+            `}
+          </style>
+          <Modal
+            open={true}
+            title="Edit URL parameter"
+            mask={false}
+            keyboard={false}
+            closable={true}
+            getContainer={getContainer}
+            className="custom-modal"
+            footer={
+              <>
+                <Button type="text" danger>
+                  Delete
+                </Button>
+                <div style={{ display: 'flex', gap: 8 }}>
+                  <Button type="text">Cancel</Button>
+                  <Button type="primary">Apply</Button>
+                </div>
+              </>
+            }
+          >
+            <div style={{ marginBottom: 20 }}>
+              <label style={{ display: 'block', marginBottom: 5 }}>
+                * Parameter string
+              </label>
+              <Input defaultValue="utm_source" />
+            </div>
+            <div>
+              <label style={{ display: 'block', marginBottom: 8 }}>
+                * Caching rule
+              </label>
+              <div
+                style={{
+                  background: '#fff',
+                  borderRadius: 4,
+                  padding: '8px 12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12,
+                  width: 'fit-content',
+                }}
+              >
+                <Switch defaultChecked />
+                <span>Exclude from cache</span>
+              </div>
+            </div>
+          </Modal>
+        </div>
+      );
+    })()}
+  </ThemeProvider>
+</Unstyled>
+
+### Header
+
+The header contains a title, which could be a question, a short statement, or a descriptive phrase summarizing the modal's purpose. Positioned at the far right, the close button offers a way for users to dismiss the modal.
+
+### Body
+
+This section houses the core message text or components relevant to the modal's purpose. It's designed to convey information or offer interaction elements, such as forms or choices.
+
+### Footer
+
+The footer is dedicated to action buttons, facilitating user decisions or next steps. The arrangement and types of buttons are tailored to the modal’s requirements.
+
+- The primary action is placed on the far right for prominence and ease of access.
+- A secondary action, offering an alternative path, sits to the left of the primary.
+- If a tertiary action is present (e.g. delete), it’s positioned far left.
+- For modals with more than three actions, icon buttons are introduced.
+
+<Unstyled>
+  <ThemeProvider>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 24,
+        maxWidth: 600,
+      }}
+    >
+      <div
+        style={{
+          border: '1px solid #d9d9d9',
+          padding: 24,
+          borderRadius: 4,
+          background: '#fff',
+        }}
+      >
+        <Space style={{ justifyContent: 'flex-end', width: '100%' }}>
+          <Button type="primary">Submit</Button>
+        </Space>
+      </div>
+      <div
+        style={{
+          border: '1px solid #d9d9d9',
+          padding: 24,
+          borderRadius: 4,
+          background: '#fff',
+        }}
+      >
+        <Space style={{ justifyContent: 'flex-end', width: '100%' }}>
+          <Button type="text">Cancel</Button>
+          <Button type="primary">Submit</Button>
+        </Space>
+      </div>
+      <div
+        style={{
+          border: '1px solid #d9d9d9',
+          padding: 24,
+          borderRadius: 4,
+          background: '#fff',
+        }}
+      >
+        <Space style={{ justifyContent: 'space-between', width: '100%' }}>
+          <Button danger>Delete</Button>
+          <Space>
+            <Button type="text">Cancel</Button>
+            <Button type="primary">Submit</Button>
+          </Space>
+        </Space>
+      </div>
+      <div
+        style={{
+          border: '1px solid #d9d9d9',
+          padding: 24,
+          borderRadius: 4,
+          background: '#fff',
+        }}
+      >
+        <Space style={{ justifyContent: 'space-between', width: '100%' }}>
+          <Space>
+            <Button danger icon={<DeleteOutlined />} />
+            <Button icon={<ReloadOutlined />} />
+          </Space>
+          <Space>
+            <Button type="text">Cancel</Button>
+            <Button type="primary">Submit</Button>
+          </Space>
+        </Space>
+      </div>
+    </div>
+  </ThemeProvider>
+</Unstyled>
+
+## Accessibility
+
+Designing accessible modals is essential for providing all users with a seamless and inclusive interaction experience.
+
+- Modals should trap keyboard focus within their content.
+- Include clear controls for closing the modal, such as a labeled Close button or X, and allow closing via the Escape key.
+- Read more at [Dialog (Modal) pattern documentation](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) by WAI-ARIA.
+
+## Best practices
+
+<DoDont
+  rows={[
+    {
+      do: 'Use modals for important interactions that require immediate attention from the user, like confirmations or short forms.',
+      dont: 'Don’t use modals for long or complex workflows that require sustained focus.',
+    },
+    {
+      do: 'Ensure the modal can be closed using the Escape key.',
+      dont: 'Don’t launch modals without a visible or keyboard-accessible close method.',
+    },
+    {
+      do: 'Keep modal content focused and concise.',
+      dont: 'Avoid verbose copy or unrelated content inside a modal.',
+    },
+    {
+      do: 'Use modals only when relevant to the user’s current task.',
+      dont: 'Avoid using modals for generic announcements or unrelated messages.',
+    },
+  ]}
+/>

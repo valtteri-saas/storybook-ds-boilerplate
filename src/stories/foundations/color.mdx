@@ -1,0 +1,62 @@
+import { Meta, Unstyled } from '@storybook/addon-docs';
+import Token from '../../components/Token';
+
+<Meta title="Foundations/Tokens/Color" />
+
+# Color
+
+Every color in our set has a distinct meaning and intended use. For example, green is used to signal positive actions or outcomes. Our semantic naming convention is designed to make the purpose and application of each color clear.
+
+### **Role**
+
+The role tells you where the color should be applied, whether as foreground, background, or border.
+
+### **Sentiment**
+
+Sentiment expresses the mood or message of a color. Options are accent, success, warning, and danger. Neutral grayscale colors do not carry a sentiment.
+
+### **Emphasis**
+
+Emphasis shows how strong or prominent the color appears in the design. Choices include primary, secondary, tertiary, highlight, muted, and inverted.
+
+### **State**
+
+State refers to different states of a component’s interaction, such as hover or active.
+
+## Foreground
+
+<Unstyled>
+  <Token category="alias.color.foreground" />
+</Unstyled>
+
+## Background
+
+<Unstyled>
+  <Token category="alias.color.background" />
+</Unstyled>
+
+## Border
+
+<Unstyled>
+  <Token category="alias.color.border" />
+</Unstyled>
+
+# Core
+
+The **core tokens**, sometimes referred to as **primitive tokens**, define the foundational values in our design system (such as raw colors). These tokens provide the base building blocks for the system, but they are not designed to be used directly in product code or interface components.
+
+Instead, always reference and use **alias tokens**. Alias tokens map to core/primitive tokens, offering named, contextual, and semantic meanings suited to actual UI usage. This approach ensures proper abstraction, easier refactoring, and a consistent visual language across products.
+
+Use only alias tokens in your code and interfaces. Treat core/primitive tokens as internal technical values managed by the design system.
+
+### Primary
+
+<Unstyled>
+  <Token category="core.color.primary" />
+</Unstyled>
+
+### Secondary
+
+<Unstyled>
+  <Token category="core.color.secondary" />
+</Unstyled>

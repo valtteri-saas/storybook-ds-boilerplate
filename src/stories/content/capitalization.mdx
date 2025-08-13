@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import DoDont from '../../components/DoDont';
+import TLDR from '../../components/TLDR';
+
+<Meta title="Content/Capitalization" />
+
+# Capitalization
+
+Consistent capitalization creates a more professional and unified experience across our platform. We primarily use sentence case throughout the Prerender interface to maintain readability and a conversational tone.
+
+<TLDR>
+  <p>Use sentence case for most UI elements, with these exceptions:</p>
+  <ul>
+    <li>Proper nouns (names, places, days)</li>
+    <li>Prerender product names and features</li>
+    <li>Technical terms that are conventionally capitalized</li>
+  </ul>
+</TLDR>
+
+## When in doubt, use sentence case
+
+For most UI elements, capitalize only the first word and any proper nouns. This applies to navigation items, buttons, form labels, headings, and other interface text.
+
+<DoDont
+  rows={[
+    {
+      do: 'Clear manual queue',
+      dont: 'Clear Manual Queue',
+    },
+    {
+      do: 'Update your password',
+      dont: 'Update Your Password',
+    },
+    {
+      do: 'How can we help you?',
+      dont: 'How Can We Help You?',
+    },
+  ]}
+/>
+
+### Exceptions
+
+While sentence case is our default, certain elements should maintain their conventional capitalization:
+
+- **Proper nouns**: Names of people, places, days of the week, and months
+- **Product features**: Prerender-specific features like CDN Analytics, 404 Checker
+- **Technical terms**: HTML, CSS, JavaScript, API, URL, CDN
+- **Legal content**: Terms of Service, Privacy Policy

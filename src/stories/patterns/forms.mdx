@@ -1,0 +1,170 @@
+import { Meta, Unstyled } from '@storybook/addon-docs';
+import ThemeProvider from '../../components/ThemeProvider';
+import DoDont from '../../components/DoDont';
+import { Form, Input, Button, Typography, Space } from 'antd';
+import {
+  VerticalSpacingIndicator,
+  HorizontalSpacingIndicator,
+} from '../../components/SpacingIndicators';
+import React from 'react';
+
+<Meta title="Patterns/Forms" />
+
+# Forms
+
+## Layout
+
+### Vertical spacing
+
+Vertical spacing, the gap between form elements, should maintain uniformity for individual inputs while increasing for input groupings. A vertical spacing of 24px between form elements is recommended to accommodate potential error messages below the element.
+
+### Horizontal spacing
+
+Horizontal spacing refers to the gap between columns or inline elements in a form and should exceed vertical spacing by an increment of 8 pixels – this enhances clarity and reduces clutter.
+
+<Unstyled>
+  <ThemeProvider>
+    <div
+      style={{
+        padding: 24,
+        border: '1px solid #d9d9d9',
+        borderRadius: 4,
+        maxWidth: 600,
+        marginBottom: 32,
+        background: '#fff',
+      }}
+    >
+      <Form layout="vertical">
+        <div style={{ display: 'flex', alignItems: 'stretch' }}>
+          <Form.Item label="First name" style={{ flex: 1, marginBottom: 0 }}>
+            <Input />
+          </Form.Item>
+          <HorizontalSpacingIndicator width={32} />
+          <Form.Item label="Last name" style={{ flex: 1, marginBottom: 0 }}>
+            <Input />
+          </Form.Item>
+        </div>
+        <VerticalSpacingIndicator height={24} label="24px" />
+        <Form.Item label="Email address" required style={{ marginBottom: 0 }}>
+          <Input placeholder="example@company.com" />
+        </Form.Item>
+        <VerticalSpacingIndicator height={24} label="24px" />
+        <Form.Item label="Additional information" style={{ marginBottom: 0 }}>
+          <Input.TextArea
+            placeholder="Any specific details you'd like us to know?"
+            rows={4}
+          />
+        </Form.Item>
+        <VerticalSpacingIndicator height={24} label="24px" />
+        <Space style={{ justifyContent: 'flex-end', width: '100%' }}>
+          <Button>Cancel</Button>
+          <Button type="primary">Submit</Button>
+        </Space>
+      </Form>
+    </div>
+  </ThemeProvider>
+</Unstyled>
+
+## Button positioning
+
+### Order
+
+Buttons are ordered from right to left by importance, positioning the primary action on the right to align with natural reading flow and action progression.
+
+### Alignment
+
+For buttons, positioning them at the form's right edge is advised. With this setup, place the primary action button furthest to the right, followed by the secondary action on its immediate left. Any tertiary action, if needed, should be positioned at the very left.
+
+<Unstyled>
+  <ThemeProvider>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 24,
+        maxWidth: 600,
+      }}
+    >
+      <div
+        style={{
+          border: '1px solid #d9d9d9',
+          padding: 24,
+          borderRadius: 4,
+          background: '#fff',
+        }}
+      >
+        <Space style={{ justifyContent: 'flex-end', width: '100%' }}>
+          <Button type="primary">Submit</Button>
+        </Space>
+      </div>
+      <div
+        style={{
+          border: '1px solid #d9d9d9',
+          padding: 24,
+          borderRadius: 4,
+          background: '#fff',
+        }}
+      >
+        <Space style={{ justifyContent: 'flex-end', width: '100%' }}>
+          <Button type="text">Cancel</Button>
+          <Button type="primary">Submit</Button>
+        </Space>
+      </div>
+      <div
+        style={{
+          border: '1px solid #d9d9d9',
+          padding: 24,
+          borderRadius: 4,
+          background: '#fff',
+        }}
+      >
+        <Space style={{ width: '100%', justifyContent: 'space-between' }}>
+          <Button type="default">Help</Button>
+          <Space>
+            <Button type="text">Cancel</Button>
+            <Button type="primary">Submit</Button>
+          </Space>
+        </Space>
+      </div>
+    </div>
+  </ThemeProvider>
+</Unstyled>
+
+## Best practices
+
+<DoDont
+  rows={[
+    {
+      do: 'Autofocus the first field by default.',
+      dont: 'Start with an empty/unfocused form.',
+    },
+    {
+      do: 'Allow full keyboard navigation across all inputs.',
+      dont: 'Trap focus or require mouse interaction.',
+    },
+    {
+      do: 'Clearly explain what went wrong and how to fix it.',
+      dont: 'Use generic error messages like "Invalid input".',
+    },
+    {
+      do: 'Use placeholders only for optional, non-critical hints.',
+      dont: 'Use placeholders instead of labels.',
+    },
+    {
+      do: 'Separate optional and required fields visually.',
+      dont: 'Treat all inputs identically with no indication.',
+    },
+    {
+      do: 'Combine related fields like "First name" and "Last name" in the same row.',
+      dont: 'Place logically related fields far apart.',
+    },
+    {
+      do: 'Use a single-column layout by default for natural flow.',
+      dont: 'Overcomplicate layout with multiple columns unless necessary.',
+    },
+    {
+      do: 'Offer inclusive options when asking for gender (e.g. "Other", "Prefer not to say").',
+      dont: 'Force binary or narrow choices in sensitive questions.',
+    },
+  ]}
+/>
